@@ -42,7 +42,7 @@ class FormField(AbstractFormField):
 
 class ExtendedFormBuilder(FormBuilder):
     def create_document_field(self, field, options):
-        return FileField(widget=FileInput(attrs={'accept': settings.FILE_ALLOWED_EXTENSIONS}), **options)
+        return FileField(widget=FileInput(attrs={'accept': settings.FILE_ACCEPT_ATTR_VALUE}), **options)
 
 
 @method_decorator(never_cache, name='serve')

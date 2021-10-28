@@ -2,31 +2,25 @@
 
 {% with details=page.detail %}
 {% if page.open_round %}
-  <div class="listing listing--not-a-link">
+  <div class="listing">
       <div>
-          <h4 class="listing__title listing__title--link">
-              {% if page.next_deadline %}
-                  <p class="listing__deadline">
-                      <svg class="icon icon--calendar icon--small"><use xlink:href="#calendar"></use></svg>
-                      <span>{% trans "Next deadline" %}: {{ page.next_deadline|date:"M j, Y" }}</span>
-                  </p>
-              {% endif %}
-              {% if details %}
-                  <a href="{% pageurl details %}">
-              {% endif %}
-
-              {{ page.title }}
-
-              {% if details %}
-                  </a>
-              {% endif %}
-          </h4>
-
-          {% if details.listing_summary or details.introduction %}
-              <h6 class="listing__teaser">{{ details.listing_summary|default:details.introduction|truncatechars_html:120 }}</h6>
+        <img src="/media/{{ page.image }}" alt="{{page.title}}" />
+        <div class="listing__details">
+          <h3>{{ page.title }}</h3>
+          {% if page.next_deadline %}
+              <p class="listing__deadline">
+                  <svg class="icon icon--calendar icon--medium"><use xlink:href="#calendar"></use></svg>
+                  <span>{% trans "Next deadline" %}: {{ page.next_deadline|date:"M j, Y" }}</span>
+              </p>
           {% endif %}
+          {% if details %}
+              <a href="{% pageurl details %}">
+          {% endif %}
+          <div class="listing__details--description">{{ page.description|safe }}</div>
+          <a class="link link--button-secondary " href="{% pageurl page %}">{% trans "Apply" %}</a>
+        </div>
+
       </div>
-      <a class="listing__button" href="{% pageurl page %}">{% trans "Apply" %}</a>
   </div>
 {% endif %}
 {% endwith %}

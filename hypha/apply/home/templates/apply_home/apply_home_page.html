@@ -7,13 +7,18 @@
 
 {% block content %}
 <div class="wrapper wrapper--small">
+
+
     {% if page.strapline %}
-        <h4 class="heading heading--regular">{{ page.strapline }}</h4>
+      <div class="admin-bar">
+        <div class="admin-bar__inner">
+          <h1 class="gamma">DDP Grants</h1>
+          <div>{{ page.strapline|safe }}</div>
+        </div>
+      </div>
     {% endif %}
 
-    <div class="wrapper wrapper--breakout">
-        <svg class="icon icon--body-pixels-right"><use xlink:href="#body-pixels-right"></use></svg>
-    </div>
+
 
     <div class="wrapper wrapper--listings">
     {% for fund in open_funds %}
@@ -24,8 +29,5 @@
     {% endfor %}
     </div>
 
-    <div class="wrapper wrapper--breakout">
-        <svg class="icon icon--body-pixels-left"><use xlink:href="#body-pixels-left"></use></svg>
-    </div>
 </div>
 {% endblock %}

@@ -2,11 +2,13 @@
 {% load i18n %}
 
 {% block header_modifier %}header--light-bg{% endblock %}
-{% block page_title %}{% trans "Reset password" %}{% endblock %}
-{% block title %}{% trans "Reset password" %}{% endblock %}
 
 {% block content %}
-<div class="wrapper wrapper--small wrapper--bottom-space">
+<div class="wrapper wrapper--small">
+  <div class="admin-bar"><div class="admin-bar__inner">
+    <h1 class="gamma">
+      {% block page_title %}Reset password{% endblock %}
+    </h1></div></div>
     {% if form.non_field_errors %}
         <div class="messages">
             <ul>

@@ -1,1 +1,405 @@
+@import 'fonts';
 
+$color--custom0: #2f2248;
+$color--custom1: #37325b;
+$color--custom2: #9199cb;
+$color--custom3: #dfdeec;
+$color--custom4: #e8e8f1;
+$color--custom5: #eea41f;
+$color--custom6: #57bda4;
+$color--custom7: #9c92d1;
+$color--primary: $color--custom0;
+$color--custom6-90: transparentize($color--custom6, 0.9);
+$font-heading-font: 'GlacialBold';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-text {
+    font-family: 'GlacialBold';
+}
+
+@mixin body-text {
+    font-family: 'Gacial' !important;
+}
+
+html {
+    font-family: 'Glacial';
+    font-size: 1.1em;
+}
+
+.actions-bar {
+    &__total {
+        background-color: $color--custom0;
+    }
+}
+
+.admin-bar {
+    background-color: $color--custom7;
+    padding-left: 3em;
+    margin-bottom: 3em;
+
+    h1,
+    h2,
+    h3,
+    h5 {
+        font-family: 'Glacial';
+        color: $color--custom0;
+
+        &.listing__deadline {
+            display: flex;
+            align-items: baseline;
+
+            svg {
+                fill: $color--custom0;
+                margin: 0 0.75em 0 0.5em;
+                transform: scale(1.5);
+            }
+        }
+    }
+
+    &__inner {
+        align-items: flex-end;
+    }
+}
+
+.alert {
+    border-color: $color--custom3;
+    background-color: $color--custom6-90;
+
+    &__icon {
+        fill: $color--custom6;
+    }
+}
+
+%button {
+    border: 0 !important;
+    border-radius: 0.4em;
+
+    &-default,
+    &-primary,
+    &--primary {
+        @include button($color--custom0, $color--custom6);
+
+        &:hover {
+            color: $color--custom0;
+        }
+    }
+}
+
+.button,
+.btn {
+    border: 0 !important;
+    border-radius: 0.4em;
+
+    &-default,
+    &-primary,
+    &--primary {
+        @include button($color--custom0, $color--custom6);
+
+        &:hover {
+            color: $color--custom0;
+        }
+    }
+
+    &--white {
+        color: $color--custom0;
+
+        &:hover,
+        &:active {
+            background: $color--custom0;
+        }
+    }
+}
+
+.link--button-secondary,
+.link--button-tertiary {
+    @extend %button--primary;
+    padding: 0.5em 1em;
+    border-radius: 0.4em;
+    border: 0;
+}
+
+.link--button {
+    @extend %button;
+    border: 0;
+    background: none;
+    color: $color--custom1;
+    text-decoration: underline;
+
+    &:hover,
+    &:active {
+        border: 0;
+        background: none;
+    }
+}
+
+.link--button-narrow {
+    border: 0;
+    background: none;
+    color: $color--custom1;
+    text-decoration: underline;
+}
+
+.status-bar__item {
+    .status-bar__tooltip {
+        color: $color--custom0;
+
+        &::before {
+            border-bottom-color: $color--custom5;
+            box-shadow: 1px 1px 3px rgba($color--black, 0.2);
+        }
+
+        &::after {
+            background-color: $color--custom5;
+            box-shadow: 1px 1px 3px rgba($color--black, 0.2);
+            border-radius: 0.25em;
+        }
+    }
+
+    &--is-complete {
+        background: $color--custom6;
+
+        .status-bar__tooltip {
+            &::before {
+                border-bottom-color: $color--custom6;
+            }
+
+            &::after {
+                background-color: $color--custom6;
+            }
+        }
+
+        &::before {
+            background: $color--custom6;
+            border: $color--custom6;
+        }
+    }
+
+    &--is-current {
+        background: $color--custom3;
+        text-decoration: underline;
+
+        &::before {
+            border-color: $color--custom5;
+        }
+
+        .status-bar__tooltip {
+            &::before {
+                border-bottom-color: $color--custom5;
+            }
+
+            &::after {
+                background-color: $color--custom5;
+            }
+        }
+    }
+}
+
+.tab__item {
+    color: $color--custom4;
+
+    &:hover,
+    &:active,
+    &--active {
+        color: $color--custom0;
+    }
+
+    &--active {
+        border-radius: 0.4em 0.4em 0 0;
+    }
+}
+
+.js-tabs {
+    .tab__item {
+        color: $color--custom4;
+
+        &:hover,
+        &--active {
+            color: $color--custom0;
+            border-bottom-color: $color--custom1;
+        }
+    }
+}
+
+.header {
+    background-color: $color--custom0;
+
+    &__logo--desktop {
+        width: 200px;
+        height: 60px;
+    }
+
+    .button {
+        &--transparent {
+            color: $color--custom3;
+            border: 0;
+            display: flex;
+            align-items: baseline;
+
+            svg {
+                fill: $color--custom3;
+            }
+
+            &:hover {
+                color: $color--custom0;
+                background: $color--custom5;
+
+                svg {
+                    fill: $color--custom0;
+                }
+            }
+        }
+    }
+
+    &__menus--desktop {
+        nav {
+            width: 100%;
+
+            .nav--primary {
+                justify-content: space-evenly;
+
+                li {
+                    margin-right: unset;
+                }
+
+                .nav__link {
+                    padding: 5px 15px;
+                    color: $color--custom3;
+                    font-weight: 100;
+                    border-radius: 0.3em;
+
+                    &:hover,
+                    &--active {
+                        background: $color--custom6;
+                        color: $color--custom0;
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.docs-block {
+    border-color: $color--custom1;
+
+    &__header {
+        background-color: $color--custom1;
+    }
+
+    &__icon {
+        &.is-complete {
+            stroke: $color--custom6;
+        }
+    }
+}
+
+.cookieconsent {
+    background-color: $color--custom1;
+    border-top-color: $color--custom3;
+}
+
+.listing {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: url('../../images/bg/ddp_funding_2_bg.png');
+    background-size: cover;
+    color: $color--custom4;
+
+    &:nth-of-type(2n + 2) {
+        background: url('../../images/bg/ddp_funding_1_bg.png');
+        background-size: cover;
+        color: $color--custom1;
+    }
+
+    & > div {
+        width: 70%;
+        margin: auto;
+        padding: 40px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    & img {
+        max-width: 300px;
+        height: auto;
+    }
+
+    &__deadline {
+        font-size: 1.2em;
+        padding-left: 10px;
+    }
+
+    &__details {
+        padding: 0 0 60px 60px;
+
+        &--description {
+            padding-bottom: 40px;
+        }
+    }
+
+    & .link {
+        margin-top: 20px;
+    }
+}
+
+.form {
+    &__question span,
+    span.form__question {
+        font-family: 'GlacialBold';
+        margin-bottom: 0;
+        font-size: 1.2em;
+    }
+
+    // sass-lint:disable class-name-format indentation
+    &__question {
+        &--image_field,
+        &--multi_file_field,
+        &--single_file_field,
+        &--file_field {
+            @include button($color--custom0, $color--custom6);
+            background: url('../../images/upload.svg') $color--custom0 no-repeat
+                30px center;
+            border-radius: 0.4em;
+            background-size: 0.8em;
+            padding: 0.5em 50px;
+            border: 0;
+
+            &:hover {
+                background: url('./../../images/upload.svg') $color--custom6
+                    no-repeat 30px center;
+                background-size: 0.8em;
+            }
+
+            span {
+                font-family: 'Glacial';
+                font-size: 1em;
+            }
+        }
+    }
+
+    &--buttons {
+        position: fixed;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        background: $color--custom7;
+
+        .wrapper--form {
+            padding: 1em 0;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        & > * {
+            border: 0;
+        }
+    }
+}

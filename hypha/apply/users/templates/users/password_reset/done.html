@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block header_modifier %}header--light-bg{% endblock %}
-{% block page_title %}{% trans "Check your email" %}{% endblock %}
 {% block title %}{% trans "Reset password" %}{% endblock %}
 
 {% block content %}
 <div class="wrapper wrapper--small wrapper--bottom-space">
+  <div class="admin-bar"><div class="admin-bar__inner">
+    <h1 class="gamma">
+      {% block page_title %}Check your email{% endblock %}
+    </h1></div></div>
     <p>{% trans "A link to reset your password has been emailed to you." %}</p>
 </div>
 {% endblock %}
